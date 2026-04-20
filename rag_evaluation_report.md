@@ -6,6 +6,7 @@
 - Embeddings: `sentence-transformers/all-MiniLM-L6-v2`
 - Index: FAISS (`IndexFlatIP`, normalized embeddings)
 - Generator: `mistral:7b-instruct` served with Ollama (local)
+- Runtime for final evaluation: MacBook Air (Apple M2, 8 GB RAM), macOS `26.4.1`, `arm64`, local CPU inference
 
 ## Retrieval Accuracy (10 handcrafted queries)
 

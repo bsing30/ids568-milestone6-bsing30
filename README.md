@@ -48,7 +48,7 @@ Run the agent command repeatedly with different tasks; output traces are stored 
 - Model name/version: `mistral:7b-instruct` (Ollama)
 - Size class: 7B
 - Serving stack: Ollama local server (`http://localhost:11434`)
-- Runtime/hardware: Apple MacBook Air (Apple M2, 8 GB RAM), macOS `26.4.1`, `arm64`, local CPU inference for development runs
+- Runtime/hardware: MacBook Air (Apple M2, 8 GB RAM), macOS `26.4.1`, `arm64`, local CPU inference via Ollama
 - Typical generation latency: ~2.4s-5.8s per response in local tests
 
 ## Known Limitations
