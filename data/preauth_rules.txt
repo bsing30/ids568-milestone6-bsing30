@@ -1,0 +1,4 @@
+Pre-authorization is required for non-emergency MRI, CT scans, and elective admissions.
+Pre-authorization requests are usually reviewed within 72 hours.
+Expedited pre-authorization requests may be completed within 24 hours for urgent clinical need.
+Failure to obtain pre-authorization can lead to partial denial.

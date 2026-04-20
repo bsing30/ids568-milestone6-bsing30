@@ -48,13 +48,13 @@ Run the agent command repeatedly with different tasks; output traces are stored 
 - Model name/version: `mistral:7b-instruct` (Ollama)
 - Size class: 7B
 - Serving stack: Ollama local server (`http://localhost:11434`)
-- Runtime/hardware: update with your actual machine details before final submission
+- Runtime/hardware: Apple MacBook Air, macOS `darwin 25.4.0`, local CPU inference for development runs
 - Typical generation latency: ~2.4s-5.8s per response in local tests
 
 ## Known Limitations
-- Current retrieval policy is keyword-triggered and can miss semantically implicit requests.
-- Summarization is intentionally simple to keep traces transparent.
-- Small sample corpus; quality depends heavily on document coverage.
+- Local CPU inference is slower than GPU-backed model serving.
+- Tool planning is LLM-driven but still uses a deterministic fallback when the local model server is unavailable.
+- Retrieval quality still depends on corpus quality and chunking choices.
 
 ## Submission Note
-Before final submission, replace any placeholder runtime details with your exact environment and re-run evaluations on your final model configuration.
+Submission tag created as required via `git tag submission && git push --tags`.

@@ -1,0 +1,5 @@
+Formulary tier 1 drugs have a $10 copay.
+Tier 2 drugs have a $35 copay.
+Tier 3 drugs have 30% coinsurance.
+Prior authorization is required for select specialty medications.
+Step therapy rules apply to selected chronic-condition medications.

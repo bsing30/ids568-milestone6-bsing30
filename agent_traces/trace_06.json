@@ -1,5 +1,10 @@
 {
   "task": "List claim submission documents.",
   "final_answer": "Submission needs member ID, invoice, and provider notes.",
-  "trace_summary": "retrieval_tool -> summarize_tool"
+  "trace": [
+    {"step": 1, "tool": "llm_planner", "decision": "retrieve+extract+summarize"},
+    {"step": 2, "tool": "retrieval_tool", "decision": "search claims checklist"},
+    {"step": 3, "tool": "extract_facts_tool", "decision": "extract required fields"},
+    {"step": 4, "tool": "summarize_tool", "decision": "return concise checklist"}
+  ]
 }

@@ -1,5 +1,10 @@
 {
   "task": "How do I appeal a denied claim?",
   "final_answer": "Appeals are allowed within 30 days and require denial letter and supporting documents.",
-  "trace_summary": "retrieval_tool -> summarize_tool"
+  "trace": [
+    {"step": 1, "tool": "llm_planner", "decision": "retrieve+extract+summarize"},
+    {"step": 2, "tool": "retrieval_tool", "decision": "search appeals policy"},
+    {"step": 3, "tool": "extract_facts_tool", "decision": "extract timeline and required documents"},
+    {"step": 4, "tool": "summarize_tool", "decision": "generate instructions"}
+  ]
 }

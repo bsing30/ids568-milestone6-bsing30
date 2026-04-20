@@ -1,0 +1,5 @@
+Policy A covers inpatient hospitalization, emergency services, and diagnostics.
+It has a $500 annual deductible and 20% coinsurance after deductible.
+In-network primary care visits are $25 copay after deductible is met.
+Out-of-network care is reimbursed at 60% of allowed amount.
+Emergency stabilization is covered at in-network rates.

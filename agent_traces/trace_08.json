@@ -1,5 +1,10 @@
 {
   "task": "Does Policy A include emergency services?",
   "final_answer": "Yes, Policy A covers emergency services.",
-  "trace_summary": "retrieval_tool -> summarize_tool"
+  "trace": [
+    {"step": 1, "tool": "llm_planner", "decision": "retrieve+extract+summarize"},
+    {"step": 2, "tool": "retrieval_tool", "decision": "search emergency coverage clause"},
+    {"step": 3, "tool": "extract_facts_tool", "decision": "isolate direct coverage sentence"},
+    {"step": 4, "tool": "summarize_tool", "decision": "produce confirmation answer"}
+  ]
 }

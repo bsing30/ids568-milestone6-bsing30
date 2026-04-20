@@ -1,0 +1,5 @@
+Policy B includes specialist visits, mental health consultations, and preventive care.
+Preventive care has zero copay when in-network.
+Specialist visits carry a $45 copay.
+Telehealth mental-health visits are covered with a $20 copay.
+Annual wellness labs are covered once per year without copay.

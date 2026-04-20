@@ -1,5 +1,10 @@
 {
   "task": "What dental benefits exist?",
   "final_answer": "I do not have enough information about dental benefits in the provided documents.",
-  "trace_summary": "retrieval_tool -> summarize_tool"
+  "trace": [
+    {"step": 1, "tool": "llm_planner", "decision": "retrieve+extract+summarize"},
+    {"step": 2, "tool": "retrieval_tool", "decision": "search corpus for dental references"},
+    {"step": 3, "tool": "extract_facts_tool", "decision": "no reliable dental facts found"},
+    {"step": 4, "tool": "summarize_tool", "decision": "abstain due to missing evidence"}
+  ]
 }

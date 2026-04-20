@@ -1,0 +1,4 @@
+Members can search in-network providers through the provider portal.
+Out-of-network emergency care is treated as in-network for stabilization services.
+Non-emergency out-of-network care may require higher member cost-sharing.
+Provider directory updates are published weekly.

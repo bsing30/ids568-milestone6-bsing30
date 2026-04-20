@@ -1,5 +1,10 @@
 {
   "task": "Is preventive care zero copay?",
   "final_answer": "Preventive care has zero copay when in-network under Policy B.",
-  "trace_summary": "retrieval_tool -> summarize_tool"
+  "trace": [
+    {"step": 1, "tool": "llm_planner", "decision": "retrieve+extract+summarize"},
+    {"step": 2, "tool": "retrieval_tool", "decision": "fetch preventive-care rules"},
+    {"step": 3, "tool": "extract_facts_tool", "decision": "retain in-network condition"},
+    {"step": 4, "tool": "summarize_tool", "decision": "answer yes/no with condition"}
+  ]
 }

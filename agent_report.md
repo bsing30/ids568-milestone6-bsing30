@@ -1,12 +1,13 @@
 # Agent Controller Report
 
 ## Tool Selection Policy
-The agent uses a keyword-triggered policy for retrieval-first behavior on tasks involving policy coverage, claims, appeals, and timelines. After retrieval, it runs a summarization tool to produce concise output. This keeps decision points observable and deterministic.
+The agent uses an LLM planner step to decide tool usage (`llm_planner` trace step). The planner chooses whether retrieval is needed and whether evidence extraction should run before summarization. If local model planning fails, a deterministic fallback policy is used and explicitly logged.
 
 ## Retrieval Integration
 - Retriever tool is reused from Part 1 (`RAGPipeline.retrieve`).
 - Retrieval returns structured records (doc ID, chunk ID, text, score).
-- Summarizer consumes retrieved context (or original task when retrieval is skipped).
+- `extract_facts_tool` converts retrieved chunks into source-attributed evidence bullets.
+- Summarizer consumes extracted evidence (or raw task text when retrieval is skipped).
 
 ## 10 Evaluation Tasks (overview)
 1. Deductible and coinsurance lookup for Policy A  
@@ -21,12 +22,12 @@ The agent uses a keyword-triggered policy for retrieval-first behavior on tasks 
 10. Multi-question task requiring merged evidence
 
 ## Performance and Observability
-- Each task stores a trace with explicit decisions, reasons, tool calls, and outputs.
-- Retrieval selection is explainable and reproducible.
+- Each task stores planner, retrieval, extraction, and summarization steps with reasons and latencies.
+- Tool selection is LLM-driven for final workflow and transparent in traces.
 - Trace artifacts are saved under `agent_traces/`.
 
 ## Failure Analysis
-- Wrong-tool risk for vague tasks that do not include trigger terms.
+- Planner can occasionally over-call retrieval for procedural tasks that do not need external evidence.
 - Retrieval limitations on sparse or low-frequency details can reduce final answer completeness.
 - Summarizer can compress too aggressively; long context may lose secondary facts.
 

@@ -1,5 +1,10 @@
 {
   "task": "How long do claims take?",
   "final_answer": "Claims are typically processed in 7-10 business days.",
-  "trace_summary": "retrieval_tool -> summarize_tool"
+  "trace": [
+    {"step": 1, "tool": "llm_planner", "decision": "retrieve+extract+summarize"},
+    {"step": 2, "tool": "retrieval_tool", "decision": "fetch claims_process evidence"},
+    {"step": 3, "tool": "extract_facts_tool", "decision": "extract SLA fact"},
+    {"step": 4, "tool": "summarize_tool", "decision": "return timeline answer"}
+  ]
 }

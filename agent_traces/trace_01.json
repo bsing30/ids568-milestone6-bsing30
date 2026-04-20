@@ -1,5 +1,31 @@
 {
   "task": "What is Policy A deductible and coinsurance?",
   "final_answer": "Policy A has a $500 annual deductible and 20% coinsurance after deductible.",
-  "trace_summary": "retrieval_tool -> summarize_tool"
+  "trace": [
+    {
+      "step": 1,
+      "decision": "Plan tool sequence",
+      "tool": "llm_planner",
+      "reason": "Factual policy lookup requires retrieval evidence.",
+      "tool_output": {"need_retrieval": true, "need_fact_extraction": true}
+    },
+    {
+      "step": 2,
+      "decision": "Retrieve evidence",
+      "tool": "retrieval_tool",
+      "reason": "Need exact deductible/coinsurance values from source docs."
+    },
+    {
+      "step": 3,
+      "decision": "Extract evidence facts",
+      "tool": "extract_facts_tool",
+      "reason": "Create source-attributed factual bullets before summarization."
+    },
+    {
+      "step": 4,
+      "decision": "Generate concise final response",
+      "tool": "summarize_tool",
+      "reason": "Produce user-facing answer from extracted facts."
+    }
+  ]
 }

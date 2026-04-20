@@ -1,5 +1,10 @@
 {
   "task": "What does Policy B cover?",
   "final_answer": "Policy B includes specialist visits, mental health consultations, and preventive care.",
-  "trace_summary": "retrieval_tool -> summarize_tool"
+  "trace": [
+    {"step": 1, "tool": "llm_planner", "decision": "retrieve+extract+summarize"},
+    {"step": 2, "tool": "retrieval_tool", "decision": "fetch policy_b evidence"},
+    {"step": 3, "tool": "extract_facts_tool", "decision": "source-tag key facts"},
+    {"step": 4, "tool": "summarize_tool", "decision": "compose concise answer"}
+  ]
 }

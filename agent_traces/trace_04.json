@@ -1,5 +1,10 @@
 {
   "task": "What is urgent claim handling?",
   "final_answer": "Urgent claims can be escalated for 48-hour review.",
-  "trace_summary": "retrieval_tool -> summarize_tool"
+  "trace": [
+    {"step": 1, "tool": "llm_planner", "decision": "retrieve+extract+summarize"},
+    {"step": 2, "tool": "retrieval_tool", "decision": "search urgent review policy"},
+    {"step": 3, "tool": "extract_facts_tool", "decision": "extract escalation clause"},
+    {"step": 4, "tool": "summarize_tool", "decision": "summarize urgent path"}
+  ]
 }

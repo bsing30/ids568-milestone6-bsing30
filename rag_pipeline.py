@@ -17,7 +17,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
 import time
 from dataclasses import dataclass
 from pathlib import Path
@@ -70,24 +69,42 @@ class RAGPipeline:
     def _seed_sample_docs(self) -> None:
         sample_docs = {
             "policy_a.txt": (
-                "Policy A covers inpatient hospitalization, emergency services, "
-                "and basic diagnostics. It has a $500 annual deductible and "
-                "20% coinsurance after deductible."
+                "Policy A covers inpatient hospitalization, emergency services, and diagnostics. "
+                "It has a $500 annual deductible and 20% coinsurance after deductible. "
+                "In-network primary care visits are $25 copay after deductible is met. "
+                "Out-of-network care is reimbursed at 60% of allowed amount."
             ),
             "policy_b.txt": (
-                "Policy B includes outpatient specialist visits, mental health "
-                "consultations, and preventive care. Preventive care has zero "
-                "copay when in-network."
+                "Policy B includes specialist visits, mental health consultations, and preventive care. "
+                "Preventive care has zero copay when in-network. Specialist visits carry a $45 copay. "
+                "Telehealth mental-health visits are covered with a $20 copay."
             ),
             "claims_process.txt": (
                 "Claim submission requires member ID, invoice, and provider notes. "
-                "Claims are typically processed in 7-10 business days. Urgent claims "
-                "can be escalated for 48-hour review."
+                "Claims are processed in 7-10 business days. Urgent claims can be escalated for 48-hour review. "
+                "Electronic claims are preferred and should include ICD and CPT coding where available."
             ),
             "appeals.txt": (
-                "Denied claims can be appealed within 30 days. Appeal packets should "
-                "include denial letter, supporting medical documents, and physician "
-                "statement."
+                "Denied claims can be appealed within 30 days. Appeal packets should include denial letter, "
+                "supporting medical documents, and physician statement. External review is available for "
+                "final internal denial decisions within 60 days."
+            ),
+            "pharmacy_benefits.txt": (
+                "Formulary tier 1 drugs have a $10 copay, tier 2 drugs have a $35 copay, "
+                "and tier 3 drugs have 30% coinsurance. Prior authorization is required for select "
+                "specialty medications."
+            ),
+            "provider_network.txt": (
+                "Members can search in-network providers through the provider portal. "
+                "Out-of-network emergency care is treated as in-network for stabilization services."
+            ),
+            "preauth_rules.txt": (
+                "Pre-authorization is required for non-emergency MRI, CT scans, and elective admissions. "
+                "Pre-authorization requests are usually reviewed within 72 hours."
+            ),
+            "billing_faq.txt": (
+                "Balance billing complaints should be submitted within 45 days with EOB and provider invoice. "
+                "Payment plans are available for balances over $300."
             ),
         }
         for name, content in sample_docs.items():
@@ -180,9 +197,17 @@ def main() -> None:
     parser.add_argument("--query", type=str, required=True, help="User query.")
     parser.add_argument("--top_k", type=int, default=3, help="Top-k retrieval.")
     parser.add_argument("--output", type=str, default="", help="Optional output JSON file.")
+    parser.add_argument(
+        "--force_seed",
+        action="store_true",
+        help="Overwrite sample docs in data directory before indexing.",
+    )
     args = parser.parse_args()
 
     rag = RAGPipeline()
+    if args.force_seed:
+        rag.data_dir.mkdir(parents=True, exist_ok=True)
+        rag._seed_sample_docs()
     docs = rag.ingest_documents()
     rag.chunk_documents(docs)
     rag.build_index()

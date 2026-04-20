@@ -1,0 +1,5 @@
+Claim submission requires member ID, invoice, and provider notes.
+Claims are processed in 7-10 business days.
+Urgent claims can be escalated for 48-hour review.
+Electronic claims should include ICD and CPT coding when available.
+Missing documentation can delay adjudication by up to 5 business days.
