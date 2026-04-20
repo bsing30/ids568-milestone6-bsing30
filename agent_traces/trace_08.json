@@ -1,0 +1,5 @@
+{
+  "task": "Does Policy A include emergency services?",
+  "final_answer": "Yes, Policy A covers emergency services.",
+  "trace_summary": "retrieval_tool -> summarize_tool"
+}

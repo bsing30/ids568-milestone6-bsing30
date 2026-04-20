@@ -1,0 +1,5 @@
+{
+  "task": "What is urgent claim handling?",
+  "final_answer": "Urgent claims can be escalated for 48-hour review.",
+  "trace_summary": "retrieval_tool -> summarize_tool"
+}

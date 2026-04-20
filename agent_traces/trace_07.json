@@ -1,0 +1,5 @@
+{
+  "task": "Is preventive care zero copay?",
+  "final_answer": "Preventive care has zero copay when in-network under Policy B.",
+  "trace_summary": "retrieval_tool -> summarize_tool"
+}

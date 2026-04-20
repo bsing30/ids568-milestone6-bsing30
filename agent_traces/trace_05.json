@@ -1,0 +1,5 @@
+{
+  "task": "How do I appeal a denied claim?",
+  "final_answer": "Appeals are allowed within 30 days and require denial letter and supporting documents.",
+  "trace_summary": "retrieval_tool -> summarize_tool"
+}

@@ -1,0 +1,5 @@
+{
+  "task": "List claim submission documents.",
+  "final_answer": "Submission needs member ID, invoice, and provider notes.",
+  "trace_summary": "retrieval_tool -> summarize_tool"
+}

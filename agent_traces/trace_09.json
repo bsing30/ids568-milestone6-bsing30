@@ -1,0 +1,5 @@
+{
+  "task": "What dental benefits exist?",
+  "final_answer": "I do not have enough information about dental benefits in the provided documents.",
+  "trace_summary": "retrieval_tool -> summarize_tool"
+}

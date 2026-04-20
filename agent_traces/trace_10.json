@@ -1,0 +1,5 @@
+{
+  "task": "Summarize coverage and claim SLA together.",
+  "final_answer": "Policy docs describe coverage areas and claim processing at 7-10 business days with urgent 48-hour escalation.",
+  "trace_summary": "retrieval_tool -> summarize_tool"
+}

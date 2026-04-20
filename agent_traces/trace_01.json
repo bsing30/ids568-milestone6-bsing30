@@ -1,0 +1,5 @@
+{
+  "task": "What is Policy A deductible and coinsurance?",
+  "final_answer": "Policy A has a $500 annual deductible and 20% coinsurance after deductible.",
+  "trace_summary": "retrieval_tool -> summarize_tool"
+}

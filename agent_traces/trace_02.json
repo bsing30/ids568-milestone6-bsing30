@@ -1,0 +1,5 @@
+{
+  "task": "What does Policy B cover?",
+  "final_answer": "Policy B includes specialist visits, mental health consultations, and preventive care.",
+  "trace_summary": "retrieval_tool -> summarize_tool"
+}

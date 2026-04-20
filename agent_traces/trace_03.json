@@ -1,0 +1,5 @@
+{
+  "task": "How long do claims take?",
+  "final_answer": "Claims are typically processed in 7-10 business days.",
+  "trace_summary": "retrieval_tool -> summarize_tool"
+}
